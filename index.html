@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Exam</title>
+</head>
+<body>
+    <!-- Создаем скелет страницы в HTML, остальное все будет создаваться в JS -->
+    <div class="container">
+        <div class="weather">
+            <div class="header">
+                <div class="header__heading">MY WEATHER</div>
+                <form action="" id="form" class="header__search">
+                    <input class="header__search-input" type="text" name="" id="search">
+                    <button class="header__search-button" id="submit" type="submit"><i class='bx bx-search'></i></button>
+                </form>
+            </div>
+            <div class="tabs" id = "tabs">
+                <div class="tabs__header">
+                    <div class="tabs__header-item">
+                        <button type="button" class = "tabs__header-btn">Today</button>
+                    </div>
+                    <div class="tabs__header-item">
+                        <button type="button" class = "tabs__header-btn">5-day forecast</button>
+                    </div>
+                </div>
+                <div class="tabs__content">
+                    <div class = "tabs__content-item current-weather">
+                        <div class="current-weather__main">
+                        </div>
+                        <div class="current-weather__hourly">
+
+                        </div>
+                        <div class="current-weather__nearby">
+
+                        </div>
+                    </div>
+                    <div class = "tabs__content-item forecast">
+                        <div class="forecast-block">
+                            <div class="forecast__days">
+    
+                            </div>                        
+                            <div class="forecast__hourly">
+    
+                            </div>  
+                        </div>                      
+                    </div>
+                    <div class = "error" hidden>
+                        <div class="error__cover">
+                            <img class="error__img" src="./assets/img/404-1(edit).jpg" alt="">
+                            <p class="error__text"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+
+    <script src="./assets/js/main.js" type="module"></script>
+</body>
+</html>

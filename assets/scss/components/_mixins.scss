@@ -1,0 +1,111 @@
+@use "sass:map";
+@use "variables" as *;
+
+
+// DISPLAY FLEX// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+@mixin flex($align: null, $justify: null) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+// DISPLAY GRID// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+@mixin grid($colQty, $colWidth){
+    display: grid;
+    grid-template-columns: repeat($colQty, $colWidth);
+}
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+// RESPONSIVE IMAGE// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+@mixin responsiveImg($x, $y, $prop: null) {
+    position: relative;
+    overflow: hidden;
+    @if ($prop == w) {
+        padding-bottom: ($x / $y) * 100%;
+    }@else {
+        padding-bottom: ($y / $x) * 100%;
+    }   
+
+    img{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+//  EDIT PLACEHOLDER // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+ @mixin placeholder($color, $size, $weight) { 
+    &::-webkit-input-placeholder { 
+        color: $color; 
+        font-size: $size; 
+        font-weight: $weight; 
+    } &:-moz-placeholder { 
+        color: $color; 
+        font-size: $size; 
+        font-weight: $weight; 
+    } &::-moz-placeholder { 
+        color: $color; 
+        font-size: $size; 
+        font-weight: $weight; 
+    } &:-ms-input-placeholder { 
+        color: $color; 
+        font-size: $size; 
+        font-weight: $weight; 
+    } 
+}
+ // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+ 
+// ADAPTIVE MEDIA // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+@mixin adaptive($media) {
+    @if ($media == laptop) {
+        @media screen and (max-width: map.get($screens, laptop)) {
+           @content;
+        }
+    }@else if ($media == tablet) {
+        @media screen and (max-width: map.get($screens, tablet)) {
+            @content;
+        }
+    }@else if ($media == phone) {
+        @media screen and (max-width: map.get($screens, phone)) {
+            @content;
+        }
+    }@else {
+        @media screen and (max-width: $media) {
+            @content;
+        }
+    }
+}
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+
+// CONTAINER // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+@mixin container($cont-size, $contExtra-size, $cont-indent) {
+    max-width: calc($cont-size + $contExtra-size);
+    padding: 0 $cont-indent;
+    margin: 0 auto;
+}
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+
+// BTN// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+@mixin btnStyle($btn-color, $btn-bgcolor,$btn-bordradius){
+    color: $btn-color;
+    background-color: $btn-bgcolor;
+    border-radius: $btn-bordradius;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+
+// BACKGOUND COVER// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+@mixin backgroundCover ($bg-image, $bg-size: null, $bg-position: null){
+    background-image: $bg-image;
+    background-size: cover;
+    background-position: $bg-position;
+    background-repeat: no-repeat;
+}
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 

@@ -1,0 +1,214 @@
+@use "./components/variables" as *;
+@use "./components/mixins" as mix;
+@use "./components/reset";
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body{
+    font-family: $mainFont;
+    color: $primary;
+    font-size: $fontMain;
+    overflow-x: hidden;
+    font-size: 1.5em;
+}
+table{
+    margin-top: 2vh;
+    width: 100%;
+    text-align: center;
+}
+th{
+    text-align: left;
+    padding: 1.5vh;
+}
+
+.container{
+    @include mix.container($container, 30px, 15px);
+}
+.test{
+    color: yellow;
+}
+.error{
+    background-color: $content-color;
+    width: 100%;
+    margin: 2vh auto;
+    &__cover{
+    @include mix.flex(center, center);
+        padding: 2vh;
+        flex-direction: column;
+    }
+    &__img{
+        float: center;   
+    }
+    &__text{
+        font-family: $secondaryFont;
+        font-size: $fontMenuHeading;
+    }
+}
+.icon{
+    height: 68px;
+    width: 68px;
+}
+.big-icon img{
+    width: 98px;
+    height: 98px;
+}
+button{
+    background-color: transparent;
+}
+.weather{
+    @include mix.container($contentMain, 30px, 15px)
+}
+.header{
+    @include mix.flex(center, space-between);
+    margin-bottom: 5vh;
+
+    &__heading{
+        color: $accent;
+        font-weight: 700;
+        font-size: $fontHeading;
+        position: relative;
+    }
+    &__search-input{
+        border: 1px solid $header-bgcolor;
+        height: 2rem;
+        width: 25vw;
+        padding: 0 1.5vw;
+        margin-right: -13px;
+        
+    }
+    &__search-button{
+        position: relative;
+        top: 2px;
+        right: 10px;
+    }
+}
+.tabs{
+    &__header{
+        @include mix.flex(center, start);
+        background-color: $header-bgcolor;
+        height: 5vh;
+        &-btn{
+            padding:1vh 3vw;
+            font-weight: 700;
+            text-transform: uppercase;
+            color:  white;
+            border-right: 1px solid white;
+            &:active{
+                background-color: rgb(16, 35, 49);
+            }
+        }
+    }
+    &__content{
+        padding: 2vh 1vw ;
+        background-color: $content-bgcolor;
+        display: flex;
+        flex-direction: column;
+        &-error{
+            text-align: center;
+            margin: 0 auto;
+            &-text{
+                font-family: $secondaryFont;
+            }
+        }
+    }
+}
+.current-weather{
+    flex-direction: column;
+    &__main{
+        padding: 2vh;
+        background-color: $content-color;
+
+        &-heading{
+            @include mix.flex(center, space-between);
+            font-weight: 700;
+            color: $accent;
+            margin-bottom: 3vh;
+    
+        }
+        &-body{
+            @include mix.flex(center, space-around);
+            padding: 1vh 0;
+            margin-bottom: 3vh;
+            &-descr{
+            @include mix.flex(center, space-around);
+            flex-direction: column;
+            row-gap: 1vh;
+                &:nth-child(3){
+                    align-items: start;
+                }
+            }
+        }
+    }
+    &__hourly{
+        padding: 2vh;
+        background-color: $content-color;
+        margin-top: 2vh;
+    }
+}
+.main-temp{
+    font-size: $fontHeading;
+    font-weight: 700;
+}
+
+.forecast{
+    background-color: $content-bgcolor;
+    &__days{
+        margin-top: 2vh;
+        @include mix.flex(center, space-between);
+        column-gap: 0.5%;
+        &-card{
+            flex-basis: 19.5%;
+            background-color: $content-color;
+            padding: 2vh;
+        }
+        &-card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 2vh;
+            cursor: pointer;
+            user-select: none;
+            &:hover{
+                background-color: #ebebeb;
+            }
+            &:active{
+                background-color: rgb(167, 166, 166);
+
+            }
+            &-header{
+                font-weight: 700;
+                color: $accent;
+                font-size: 1.5rem;
+            }
+            &-main{
+                & img{
+                    width: 68px;
+                    height: 68px;
+                    margin: 2vh 0;
+                }
+            }
+            &-temp{
+                font-size: $fontHeading;
+                font-weight: 700;
+            }
+            &-descr{
+                font-weight: lighter;
+            }
+        }
+    }
+    &__hourly{
+        background-color: $content-color;
+        padding: 2vh;
+        margin-top: 2vh;
+    }
+    &-block{
+        width: 100%;
+    }
+}
+
+.tabs__content-item{
+    display: none;
+    &.active{
+        display: flex;
+    }
+}

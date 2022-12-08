@@ -1,0 +1,35 @@
+
+
+// COLORS // // // // // //
+$primary: #000000;
+$accent: #16a5aa;
+$bgcolor: #e8e8e8;
+$header-bgcolor: rgb(24, 50, 70);
+$content-bgcolor: rgb(185, 185, 185);
+$content-color: #dfdfdf;
+// // // // // // // // //
+
+// FONTS // // // // // //
+$mainFont: 'Heebo', sans-serif;;
+$secondaryFont: 'Roboto Mono', monospace;
+// // // // // // // // //
+
+// FONT-SIZES // // // // //
+$fontHeading: 50px;
+$fontMenuHeading: 25px;
+$fontMain: 16px;
+$fontNav: 16px;
+// // // // // // // // //
+
+// // // // // // // // //
+$container: 1440px;
+$contentMain:1140px;
+// // // // // // // // //
+
+// MEDIA SCREENS // // // 
+$screens: (
+    laptop: 1024px,
+    tablet: 768px,
+    phone: 576px
+);
+// // // // // // // // //
